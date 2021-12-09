@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="list"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Product</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-fab>
+    <ion-fab-button  (click)="scrollToTop()">
+      <ion-icon name="arrow-dropup"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+ <ion-card class="welcome-card">
+    <ion-slides pager="true">
+      <ion-slide >
+        <img src="{{admin_data.img_file}}" />
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
+
+  <ion-card class="welcome-card">
+   
+    <ion-card-header>
+      <ion-card-subtitle><b>{{admin_data.item_name}}</b></ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-subtitle>Description</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content><b>{{admin_data.item_name}}</b></ion-card-content>
+  </ion-card>
+
+   
+
+</ion-content>
+<ion-footer>
+  <ion-row class="ion-text-center">
+    <ion-col size="6" class="ion-no-padding">
+      <ion-button expand="full" color="primary" (click)="addToCart()">Add to Cart</ion-button>
+    </ion-col>
+    <ion-col size="6" class="ion-no-padding">
+      <ion-button expand="full" color="secondary" (click)="buyNow()">Buy Now</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

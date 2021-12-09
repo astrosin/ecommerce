@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>gallery</ion-title>
+    <ion-button (click)="logout()">
+      <ion-icon slot="start" name="logout"></ion-icon>
+      Logout
+    </ion-button>
+    <ion-button (click)="profile()">
+      <ion-icon slot="start" name="avatar"></ion-icon>
+      profile
+    </ion-button>
+    <ion-button (click)="cart()">
+      <ion-icon slot="start" name="avatar"></ion-icon>
+      cart {{count_cart}}
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="file_upload()">
+    <ion-icon slot="start" name="star"></ion-icon>
+    File upload
+  </ion-button>
+  <ion-button (click)="products()">
+    <ion-icon slot="start" name="star"></ion-icon>
+    Left Icon
+  </ion-button>
+  <ion-label>{{this.data}}</ion-label>
+</ion-content>

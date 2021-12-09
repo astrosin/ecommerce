@@ -1,0 +1,58 @@
+import { Component, OnInit } from '@angular/core';
+import { FunctionsService } from '../functions.service';
+import { MenuController, AlertController, NavController } from '@ionic/angular';
+
+@Component({
+  selector: 'app-accountsettings',
+  templateUrl: './accountsettings.page.html',
+  styleUrls: ['./accountsettings.page.scss'],
+})
+export class AccountsettingsPage implements OnInit {
+
+  
+  items = [
+    { name: 'Update Profile', url: 'updateprofile' },
+    { name: 'Change Email Address', url: 'changeemail' },
+    { name: 'Change Password', url: 'changepassword' },
+    { name: 'Deactivate Account', url: 'deactivate' }
+  ];
+
+  constructor(public fun: FunctionsService, private menuCtrl: MenuController, private alertController: AlertController, private nav: NavController) { }
+
+  ngOnInit() {
+  }
+  
+  ionViewDidEnter(){
+    this.menuCtrl.enable(false, 'end');
+    this.menuCtrl.enable(true, 'start');
+  }
+
+  async open(i){
+    if(this.items[i].url=="deactivate"){
+      const alert = await this.alertController.create({
+        header: 'Are you sure?',
+        message: 'Do you really want to deactivate your account?',
+        buttons: [
+          {
+            text: 'Yes',
+            cssClass: 'mycolor',
+            handler: (blah) => {
+              this.nav.navigateRoot('/login');
+            }
+          }, {
+            text: 'No',
+            role: 'cancel',
+            cssClass: 'mycolor',
+            handler: () => {}
+          }
+        ]
+      });
+  
+      await alert.present();
+    }
+    else{
+      this.fun.navigate(this.items[i].url,false);
+    }
+  }
+
+}

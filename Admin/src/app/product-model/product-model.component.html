@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Adding a product</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content style="margin-top:100px;"padding class="form-content">
+  
+  <form [formGroup]="validations_form"  (ngSubmit)="onSubmitLogin(validations_form.value)">
+    <ion-grid>
+      <ion-row style="text-align: center;">
+        <ion-col size="4">
+          Product Name
+        </ion-col>
+        <ion-col size="8">
+          <ion-input  type="text" placeholder="Product Name" formControlName="item_name" ></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row style="text-align: center;">
+        <ion-col size="4">
+          Product Image
+        </ion-col>
+        <ion-col size="8">
+          <input type="file" accept="image/*" ng2FileSelect [uploader]="fileUploader" />
+        </ion-col>
+      </ion-row>
+      <ion-row style="text-align: center;">
+        <ion-col size="4">
+          Product Price
+        </ion-col>
+        <ion-col size="8">
+            <ion-input  type="text" placeholder="Price of product" formControlName="price" ></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="text-align: center;">
+        <ion-col size="4">
+          Product Explanation
+        </ion-col>
+        <ion-col size="8">
+            <ion-input  type="text" placeholder="Product Explanation" formControlName="explanation" ></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="text-align:center ;cursor: pointer;">
+        <ion-col>
+          <ion-button size="large" type="submit" expand="block">Create Product</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </form>
+    
+</ion-content>

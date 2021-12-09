@@ -1,0 +1,32 @@
+
+
+<ion-content class="ion-padding" color="light">  
+  <ion-grid>
+     <ion-row justify-content-end>
+       <ion-col  padding size-xs="6" size-sm="6" size-md="6" size-lg="6" align-self-stretch *ngFor="let item of admin_data;" (click)="data_to_productview(item.id)"> 
+         <ion-card class="level">
+           <ion-card-content>
+             <ion-card-title>
+               {{item.item_name}}
+             </ion-card-title>
+             <ion-row class="progressWrapper">
+               <img src={{item.img_file}} style="height: 100%;width: 100%" />
+             </ion-row>
+             <ion-row>
+               <ion-col text-center>
+                 <ion-text color="dark">{{item.item_name}}</ion-text>
+               </ion-col>
+               <ion-col text-center>
+                 <ion-text color="dark">{{item.price}}</ion-text>
+                 <ion-text color="dark">{{item.explanation}}</ion-text>
+               </ion-col>
+             </ion-row>
+           </ion-card-content>
+         </ion-card>
+       </ion-col> 
+     </ion-row>
+   </ion-grid> 
+</ion-content>  
+
+
+

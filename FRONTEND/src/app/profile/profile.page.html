@@ -1,0 +1,42 @@
+<ion-content>
+
+
+<form style="text-align:center;width:100%">
+  <ion-list margin-bottom padding-bottom>
+  <section class="profile-picture" style="width:100%">
+  <span class="profile-picture__icon" style="font-size:25px;" (click)="presentActionSheet()">
+  <ion-icon name="md-create"></ion-icon>
+  </span>
+  <img *ngIf="image" [src]="image" class="profile-picture__image" alt="Profile Picture">
+  <img *ngIf="!image" [src]="'assets/imgs/user-placeholder.svg'" class="profile-picture__image" alt="Profile Picture">
+  </section>
+  </ion-list>
+  </form>
+  <ion-grid fixed no-padding>
+    <ion-row  >
+      <ion-col size="12" padding >
+        <ion-item>
+          <ion-label color="dark" position="stacked">Name :</ion-label><ion-label>{{name}}</ion-label>
+        </ion-item>
+          <ion-item>
+            <ion-label color="dark" position="stacked">Email:</ion-label><ion-label>{{email}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label color="dark" position="stacked">Phone Number:</ion-label><ion-label>{{mobile}}</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label color="dark" position="stacked">Address:</ion-label><ion-label>{{address}}</ion-label>
+          </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+</ion-content>

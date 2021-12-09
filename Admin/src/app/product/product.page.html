@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Product List</ion-title>
+    <ion-buttons slot="end" (click)="presentModal()">
+      <ion-button>
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+      <ion-list>
+        <div *ngFor="let item of data">
+          <ion-item (click)="presentModal(item)" detail>
+            <ion-card class="welcome-card" style="height:300px;width:300px;">
+              <ion-slides pager="true">
+                <ion-slide >
+                  <img src="{{item.img_file}}" style="height:300px;width:300px;" />
+                </ion-slide>
+              </ion-slides>
+            </ion-card>
+            <ion-icon name="pricetag" slot="start" color="danger"></ion-icon>
+            <ion-label>
+              <h2>Item Name:{{item.item_name}}</h2>
+              <h2>Price :{{item.price}}</h2>
+              <h2>Explanation :{{item.explanation}}</h2>
+              <h2></h2>
+              <!-- <img src={{item.img_file}}></img> -->
+              <h2>ordered added date:{{item.timestamp}}</h2>
+              <p></p>
+            </ion-label>
+          </ion-item>
+        </div>
+      </ion-list>
+</ion-content>
